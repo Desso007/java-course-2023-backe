@@ -1,4 +1,15 @@
 services:
+  scrapper:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - postgresql
+    networks:
+      - backend
+    environment:
+      APP_SCHEDULER_INTERVAL: 10s
+
   postgresql:
     image: postgres:16
     ports:
