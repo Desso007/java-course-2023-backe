@@ -1,6 +1,6 @@
 app:
-  telegram-token: unset
-
+  telegramToken: "6587966045:AAE9qMrXldqYXuPI44LeYbq61o3aQl6MsTQ"
+  botName: myfirst686868bot
 spring:
   application:
     name: bot

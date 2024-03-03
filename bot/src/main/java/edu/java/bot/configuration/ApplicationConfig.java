@@ -12,4 +12,7 @@ public record ApplicationConfig(
     @NotEmpty
     String botName
 ) {
+    public Object getTrackedLinks() {
+        return null;
+    }
 }
