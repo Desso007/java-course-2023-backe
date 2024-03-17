@@ -11,6 +11,10 @@
 
     <artifactId>scrapper</artifactId>
     <version>${revision}</version>
+    <packaging>pom</packaging>
+    <modules>
+        <module>scrapper-jooq</module>
+    </modules>
 
     <dependencies>
         <!-- Web -->
