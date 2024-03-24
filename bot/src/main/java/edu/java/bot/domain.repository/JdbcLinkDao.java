@@ -1,11 +1,9 @@
-package com.example.domain.repository;
+package edu.java.bot.domain.repository;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import edu.java.bot.configuration.Link;
+import java.util.Collection;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.net.URI;
-import java.util.Collection;
 
 @Repository
 public class JdbcLinkDao implements LinkDao {
@@ -18,7 +16,7 @@ public class JdbcLinkDao implements LinkDao {
 
     @Override
     @Transactional
-    public Link add(Link link) {-
+    public Link add(Link link) {
         return null;
     }
 
