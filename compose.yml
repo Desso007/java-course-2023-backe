@@ -1,3 +1,4 @@
+version: '3.8'
 services:
   scrapper:
     build: .
@@ -10,6 +11,7 @@ services:
     environment:
       APP_SCHEDULER_INTERVAL: 10s
       SPRINGDOC_SWAGGER_UI_PATH: /swagger-ui
+
   postgresql:
     image: postgres:16
     ports:
@@ -23,8 +25,24 @@ services:
     networks:
       - backend
 
+  liquibase-migrations:
+    image: liquibase/liquibase:4.25
+    depends_on:
+      - postgresql
+    command:
+      - "--changeLogFile=/liquibase/changelog/master.xml"
+      - "--driver=org.postgresql.Driver"
+      - "--url=jdbc:postgresql://postgresql:5432/scrapper"
+      - "--username=postgres"
+      - "--password=postgres"
+      - "update"
+    volumes:
+      - ./migrations:/liquibase/changelog
+    networks:
+      - backend
+
 volumes:
-  postgresql: { }
+  postgresql: {}
 
 networks:
-  backend: { }
+  backend: {}
